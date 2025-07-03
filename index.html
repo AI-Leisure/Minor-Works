@@ -1,138 +1,83 @@
 <!DOCTYPE html>
 <html lang="zh-HK">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>渠垌更換小型工程流程圖</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小型工程流程</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #1d4ed8;
+    }
+    .section {
+      margin-top: 2em;
+      padding: 1em;
+      background: #eef2ff;
+      border-left: 6px solid #3b82f6;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 2em;
+    }
+    a.button {
+      display: inline-block;
+      background: #10b981;
+      color: white;
+      padding: 0.5em 1em;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 1em;
+    }
+    a.button:hover {
+      background: #059669;
+    }
+  </style>
+</head>
+<body>
+  <h1>商業大廈渠喉更換 - 小型工程申報流程（中英對照）</h1>
 
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <ol>
+    <li>現場勘查及技術評估 / Site Inspection & Technical Assessment</li>
+    <li>確認是否屬小型工程 / Confirm Minor Works Classification</li>
+    <li>委任註冊人士 / Appoint Registered Personnel</li>
+    <li>提交 Form MW03 / Submit Form MW03<br />
+        提交施工圖（包括去水圖）、方法、安全計劃等至屋宇署。<br />
+        Submit plans (including drainage layout), method statements, and safety plan.
+    </li>
+    <li>等候備案 / Await Acknowledgement</li>
+    <li>關閉總渠及拆除 / Shut Down & Remove</li>
+    <li>安裝新渠喉 / Install New Pipe</li>
+  </ol>
 
-    <style>
-      body {
-        font-family: ui-sans-serif, system-ui, sans-serif;
-      }
-    </style>
-  </head>
+  <div class="section">
+    <h2>📚 相關連結</h2>
+    <ul>
+      <li><a href="https://www.bd.gov.hk/tc/whats-new/MWIS/index.html" target="_blank">屋宇署小型工程制度</a></li>
+      <li><a href="https://www.bd.gov.hk/doc/en/resources/forms/mw/MW03.pdf" target="_blank">Form MW03 PDF</a></li>
+      <li><a href="https://www.bd.gov.hk/doc/en/resources/forms/mw/MW04.pdf" target="_blank">Form MW04 PDF</a></li>
+    </ul>
+  </div>
 
-  <body class="bg-gray-50 text-gray-800">
-    <div id="root" class="max-w-4xl mx-auto p-6"></div>
+  <div class="section">
+    <h2>✅ 完成後條例要求</h2>
+    <ul>
+      <li>提交 MW04 表格</li>
+      <li>拍攝完工相片作記錄</li>
+      <li>工程紀錄須保存最少五年</li>
+    </ul>
+  </div>
 
-    <script type="text/babel">
-      const { useState } = React;
-
-      const steps = [
-        {
-          title: '1. 現場勘查及技術評估 / Site Inspection & Technical Assessment',
-          details: '檢查渠垌損壞程度、尺寸、樓層範圍與更換必要性。\nCheck pipe condition, dimensions, and replacement necessity.',
-        },
-        {
-          title: '2. 確認是否屬小型工程 / Confirm Minor Works Classification',
-          details: '根據《小型工程監管制度》，通常屬III級工程。\nUsually falls under Class III Minor Works as per regulations.',
-        },
-        {
-          title: '3. 委任註冊人士 / Appoint Registered Personnel',
-          details: '委任註冊小型工程承建商（RMWC）及T3技術人員。\nAppoint RMWC and T3 registered personnel.',
-        },
-        {
-          title: '4. 提交 Form MW03 / Submit Form MW03',
-          details: '提交施工圖（包括去水圖）、方法、安全計劃等至屋宇署。\nSubmit plans (including drainage layout), method statements, and safety plan.',
-        },
-        {
-          title: '5. 等候備案 / Await Acknowledgement',
-          details: '屋宇署備案，不需批准；可於通知期滿後開工。\nWorks may commence after 7-day notification period.',
-        },
-        {
-          title: '6. 關閉總渠及拆除 / Shut Down & Remove',
-          details: '關閉總排水管，清拆舊渠垌。\nShut off main pipe and remove old piping.',
-        },
-        {
-          title: '7. 安裝新渠垌 / Install New Pipe',
-          details: '安裝新渠垌，確保尺寸、物料及斜度符合標準。\nInstall new pipe with proper slope and approved materials.',
-        },
-        {
-          title: '8. 測試及檢查 / Testing and Inspection',
-          details: '水密測試及接駁檢查。\nPerform water-tightness and connection tests.',
-        },
-        {
-          title: '9. 修復與清理 / Restore and Clean Up',
-          details: '修補牆身地面，清理現場。\nRestore wall/floor and clean construction site.',
-        },
-        {
-          title: '10. 提交 Form MW04 / Submit Form MW04',
-          details: '提交完成報告與相片記錄。\nSubmit completion report and photo documentation.',
-        },
-        {
-          title: '11. 工程完成 / Completion',
-          details: '確認無漏水與異味後結束。\nConfirm no leakage or odor before handover.',
-        },
-      ];
-
-      function WorkflowApp() {
-        const [openIndex, setOpenIndex] = useState(null);
-
-        return (
-          <div>
-            <h1 className="text-3xl font-bold mb-6 text-blue-700 text-center">
-              商業大廈渠垌更換 - 小型工程申報流程（中英對照）
-            </h1>
-
-            <div className="space-y-4 mb-10">
-              {steps.map((step, index) => (
-                <div key={index} className="border border-blue-200 rounded shadow-sm overflow-hidden">
-                  <button
-                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                    className="w-full text-left px-4 py-3 bg-blue-50 hover:bg-blue-100 transition font-medium"
-                  >
-                    {step.title}
-                  </button>
-                  {openIndex === index && (
-                    <div className="px-4 py-3 bg-white text-sm whitespace-pre-line">
-                      {step.details}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* 📚 內容連結區 */}
-            <div className="border-t pt-6 mt-10">
-              <h2 className="text-xl font-semibold mb-4 text-gray-800">📚 相關連結</h2>
-              <ul className="list-disc pl-6 space-y-2 text-blue-700">
-                <li><a href="https://www.bd.gov.hk/tc/whats-new/MWIS/index.html" target="_blank">屋宇署小型工程制度</a></li>
-                <li><a href="https://www.bd.gov.hk/doc/en/resources/forms/mw/MW03.pdf" target="_blank">Form MW03 PDF</a></li>
-                <li><a href="https://www.bd.gov.hk/doc/en/resources/forms/mw/MW04.pdf" target="_blank">Form MW04 PDF</a></li>
-              </ul>
-            </div>
-
-            {/* ✅ 完成條例要求 */}
-            <div className="border-t pt-6 mt-10">
-              <h2 className="text-xl font-semibold mb-4 text-gray-800">✅ 完成後條例要求</h2>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>提交 MW04 表格</li>
-                <li>拍攝完工相片作記錄</li>
-                <li>工程紀錄須保存最少五年</li>
-              </ul>
-            </div>
-
-            {/* 📥 Template 下載 */}
-            <div className="border-t pt-6 mt-10 mb-10">
-              <h2 className="text-xl font-semibold mb-4 text-gray-800">📥 文件模板下載</h2>
-              <a
-                href="template.docx"
-                download
-                className="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-              >
-                下載：小型工程通告模板（Word）
-              </a>
-            </div>
-          </div>
-        );
-      }
-
-      ReactDOM.render(<WorkflowApp />, document.getElementById('root'));
-    </script>
-  </body>
+  <div class="section">
+    <h2>📥 文件模板下載</h2>
+    <a href="template.docx" download class="button">
+      下載：小型工程通告模板（Word）
+    </a>
+  </div>
+</body>
 </html>
