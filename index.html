@@ -5,14 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>渠垌更換小型工程流程圖</title>
 
-    <!-- React & ReactDOM -->
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Babel for JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <style>
@@ -21,6 +16,7 @@
       }
     </style>
   </head>
+
   <body class="bg-gray-50 text-gray-800">
     <div id="root" class="max-w-4xl mx-auto p-6"></div>
 
@@ -82,6 +78,7 @@
             <h1 className="text-3xl font-bold mb-6 text-blue-700 text-center">
               商業大廈渠垌更換 - 小型工程申報流程（中英對照）
             </h1>
+
             <div className="space-y-4 mb-10">
               {steps.map((step, index) => (
                 <div key={index} className="border border-blue-200 rounded shadow-sm overflow-hidden">
@@ -98,6 +95,38 @@
                   )}
                 </div>
               ))}
+            </div>
+
+            {/* 📚 內容連結區 */}
+            <div className="border-t pt-6 mt-10">
+              <h2 className="text-xl font-semibold mb-4 text-gray-800">📚 相關連結</h2>
+              <ul className="list-disc pl-6 space-y-2 text-blue-700">
+                <li><a href="https://www.bd.gov.hk/tc/whats-new/MWIS/index.html" target="_blank">屋宇署小型工程制度</a></li>
+                <li><a href="https://www.bd.gov.hk/doc/en/resources/forms/mw/MW03.pdf" target="_blank">Form MW03 PDF</a></li>
+                <li><a href="https://www.bd.gov.hk/doc/en/resources/forms/mw/MW04.pdf" target="_blank">Form MW04 PDF</a></li>
+              </ul>
+            </div>
+
+            {/* ✅ 完成條例要求 */}
+            <div className="border-t pt-6 mt-10">
+              <h2 className="text-xl font-semibold mb-4 text-gray-800">✅ 完成後條例要求</h2>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>提交 MW04 表格</li>
+                <li>拍攝完工相片作記錄</li>
+                <li>工程紀錄須保存最少五年</li>
+              </ul>
+            </div>
+
+            {/* 📥 Template 下載 */}
+            <div className="border-t pt-6 mt-10 mb-10">
+              <h2 className="text-xl font-semibold mb-4 text-gray-800">📥 文件模板下載</h2>
+              <a
+                href="template.docx"
+                download
+                className="inline-block bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+              >
+                下載：小型工程通告模板（Word）
+              </a>
             </div>
           </div>
         );
